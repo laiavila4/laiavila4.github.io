@@ -102,6 +102,9 @@ nav li a:hover{color:var(--white)}
 footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
 
 @media(max-width:760px){nav ul{gap:12px}nav a{font-size:13px}nav b{display:none}.cv{grid-template-columns:1fr;gap:8px}section{padding:64px 0}.hero{min-height:480px}}
+/* Real images inside the placeholders */
+.pic img,.pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pic:has(img,video)::after,.shot:has(img,video)::after{content:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
@@ -137,8 +140,8 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     <h2>Projects</h2>
     <p class="lead">Short films, with the modelling and rigging work behind each one.</p>
     <div class="grid">
-      <a class="card" href="#"><div class="pic"></div><div class="info"><h3>La Monja Gitana</h3><span class="tag">Modelling</span><span class="tag">Rigging</span><br><small>3D short film, La Salle URL, 2025 - Ongoing</small></div></a>
-      <a class="card" href="#"><div class="pic"></div><div class="info"><h3>Mi Vecino Es Un C*pullo</h3><span class="tag">Modelling</span><br><small>3D short film, La Salle URL, 2024 - 2025</small></div></a>
+      <a class="card" href="#"><div class="pic"><img src="img/project-monja.jpg" alt="La Monja Gitana" loading="lazy"></div><div class="info"><h3>La Monja Gitana</h3><span class="tag">Modelling</span><span class="tag">Rigging</span><br><small>3D short film, La Salle URL, 2025 - Ongoing</small></div></a>
+      <a class="card" href="#"><div class="pic"><img src="img/project-vecino.jpg" alt="Mi Vecino Es Un C*pullo" loading="lazy"></div><div class="info"><h3>Mi Vecino Es Un C*pullo</h3><span class="tag">Modelling</span><br><small>3D short film, La Salle URL, 2024 - 2025</small></div></a>
       <a class="card" href="#"><div class="pic"></div><div class="info"><h3>Confidential project</h3><span class="tag">Rigging</span><span class="tag">In progress</span><br><small>3D short film, La Salle URL, 2025 - 2026</small></div></a>
     </div>
   </div>
@@ -156,9 +159,9 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     </div>
     <div style="margin-bottom:32px"><span class="tag">Maya</span><span class="tag">ZBrush</span><span class="tag">Houdini</span><span class="tag">Substance Painter</span></div>
     <div class="shots">
-      <div class="shot" data-label="Modelling image"><div class="pic"></div></div>
-      <div class="shot" data-label="Modelling image"><div class="pic"></div></div>
-      <div class="shot" data-label="Modelling image"><div class="pic"></div></div>
+      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-1.jpg" alt="Modelling work 1" loading="lazy"></div></div>
+      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-2.jpg" alt="Modelling work 2" loading="lazy"></div></div>
+      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-3.jpg" alt="Modelling work 3" loading="lazy"></div></div>
     </div>
   </div>
 </section>
@@ -175,9 +178,9 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     </div>
     <div style="margin-bottom:32px"><span class="tag">Maya</span><span class="tag">Python</span><span class="tag">Python Qt</span><span class="tag">mGear</span></div>
     <div class="shots">
-      <div class="shot" data-label="Rigging image"><div class="pic"></div></div>
-      <div class="shot" data-label="Rigging image"><div class="pic"></div></div>
-      <div class="shot" data-label="Rigging image"><div class="pic"></div></div>
+      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-1.jpg" alt="Rigging work 1" loading="lazy"></div></div>
+      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-2.jpg" alt="Rigging work 2" loading="lazy"></div></div>
+      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-3.jpg" alt="Rigging work 3" loading="lazy"></div></div>
     </div>
   </div>
 </section>
