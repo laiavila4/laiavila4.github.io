@@ -35,6 +35,24 @@ section{position:relative;overflow:hidden}
 .tl{left:0;top:0}.tr{right:0;top:0}.br{right:0;bottom:0}.bl{left:0;bottom:0}
 .rot{transform:rotate(180deg)}.flip{transform:scaleX(-1)}
 
+/* Reels */
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.reels figure{margin:0}
+.reels figcaption{font-family:var(--display);font-weight:700;font-size:20px;margin-top:12px}
+.reels figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:14px;line-height:1.5;margin-top:4px;opacity:.8}
+.reels figcaption a{display:inline-block;margin-top:6px;font-family:var(--body);font-weight:500;font-size:14px;color:var(--garnet)}
+.shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:1}
+.shots figure{margin:0}
+.shots figcaption{margin-top:10px;font-size:14px;line-height:1.55;opacity:.85}
+.shots figcaption b{display:block;font-family:var(--display);font-size:17px;margin-bottom:2px}
+.reel{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#ece6e3;border:1px solid #d9d0cc;
+  background-image:repeating-linear-gradient(0deg,transparent 0 23px,#d9d0cc 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#d9d0cc 23px 24px)}
+.reel::before{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--garnet);z-index:0}
+.reel::after{content:"";position:absolute;left:50%;top:50%;margin:-11px 0 0 -6px;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;z-index:0}
+.reel:has(video,iframe)::before,.reel:has(video,iframe)::after{display:none}
+.reel video,.reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;background:#000;object-fit:contain}
+#reels h2{margin-bottom:14px}
+
 /* Nav */
 nav{position:sticky;top:0;z-index:5;background:rgba(12,11,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid #2a2527}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
@@ -44,12 +62,12 @@ nav a{text-decoration:none;font-size:15px;color:var(--mute)}
 nav li a:hover{color:var(--white)}
 
 /* Hero */
-.hero{position:relative;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;border-bottom:3px solid var(--garnet)}
+.hero{position:relative;scroll-margin-top:62px;min-height:520px;display:flex;align-items:center;overflow:hidden;border-bottom:3px solid var(--garnet)}
 #rig{position:absolute;inset:0;width:100%;height:100%}
-.hero .wrap{position:relative;padding-top:120px;padding-bottom:64px;pointer-events:none;width:100%}
-.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(44px,8vw,92px);line-height:1;letter-spacing:-.02em}
+.hero .wrap{position:relative;padding-top:90px;padding-bottom:90px;pointer-events:none;width:100%}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,6.6vw,80px);line-height:1.04;letter-spacing:-.02em}
+.hero p.eyebrow{font-family:var(--body);text-transform:uppercase;letter-spacing:.2em;font-size:14px;color:var(--tint);margin:0 0 18px;max-width:none}
 .hero p{max-width:480px;margin-top:18px;color:#d6d0d2}
-.hero p.role{font-family:var(--display);font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--tint);margin-top:14px}
 .btn{display:inline-block;margin-top:28px;padding:13px 30px;background:var(--garnet);color:var(--white);text-decoration:none;font-weight:500;border-radius:40px;pointer-events:auto;transition:background .2s}
 .btn:hover{background:var(--garnet-hi)}
 
@@ -101,11 +119,14 @@ nav li a:hover{color:var(--white)}
 .links{margin-top:28px;display:flex;gap:24px;flex-wrap:wrap}
 footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
 
-@media(max-width:760px){nav ul{gap:12px}nav a{font-size:13px}nav b{display:none}.cv{grid-template-columns:1fr;gap:8px}section{padding:64px 0}.hero{min-height:480px}}
+@media(max-width:760px){nav .wrap{padding:0 16px}nav ul{gap:10px;overflow-x:auto;white-space:nowrap}nav a{font-size:12px}.hero .btn.alt{margin-left:0}.hero .btn{margin-right:10px}nav b{display:none}.cv{grid-template-columns:1fr;gap:8px}section{padding:64px 0}.hero{min-height:460px}}
 /* Real images inside the placeholders */
 .pic img,.pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .pic:has(img,video)::after,.shot:has(img,video)::after{content:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+#cv h2{margin-bottom:40px}
+.btn.alt{background:transparent;border:1.5px solid var(--tint);color:var(--white);margin-left:10px}
+.btn.alt:hover{background:var(--white);color:var(--black);border-color:var(--white)}
 </style>
 </head>
 <body>
@@ -114,6 +135,8 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
   <div class="wrap">
     <b>Laia Vilà Galera</b>
     <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#reels">Reels</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#modelling">Modelling</a></li>
       <li><a href="#rigging">Rigging</a></li>
@@ -123,26 +146,55 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="home">
   <div class="bg s1 tr" aria-hidden="true"></div>
   <canvas id="rig" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h1>Laia Vilà<br>Galera</h1>
-    <p class="role">3D Modeller, Rigger &amp; Tool Developer</p>
+    <p class="eyebrow">Laia Vilà Galera</p>
+    <h1>3D Modeller, Rigger<br>&amp; Tool Developer</h1>
     <p>Character modelling and rigging with clean topology, reliable deformations and Python tools that make production faster.</p>
-    <a class="btn" href="#projects">View projects</a>
+    <a class="btn" href="#projects">View projects</a><a class="btn alt" href="https://github.com/alvaroCano-IKFK/La-monja-gitana-autorig" target="_blank" rel="noopener">GitHub repositories</a>
   </div>
 </header>
+
+<section id="reels" class="light">
+  <div class="bg s2 br rot" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>Reels</h2>
+    <p class="lead">Two reels: one with my modelling work and one with my rigging work.</p>
+    <div class="reels">
+      <figure>
+        <div class="reel">
+          <!-- MODELLING REEL. Option A (video file): upload the file to the "video" folder and keep the name below. -->
+          <video controls playsinline preload="metadata" poster="img/reel-modelling.jpg"><source src="video/modelling-reel.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+          <!-- Option B (YouTube or Vimeo): delete the <video> line above and paste your embed here, for example:
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Modelling reel" allowfullscreen loading="lazy"></iframe> -->
+        </div>
+        <figcaption>Modelling Reel<small>Write one line about what this reel shows and the software used.</small><a href="#modelling">See my modelling work &rarr;</a></figcaption>
+      </figure>
+      <figure>
+        <div class="reel">
+          <!-- RIGGING REEL. Option A (video file): upload the file to the "video" folder and keep the name below. -->
+          <video controls playsinline preload="metadata" poster="img/reel-rigging.jpg"><source src="video/rigging-reel.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+          <!-- Option B (YouTube or Vimeo): delete the <video> line above and paste your embed here, for example:
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Rigging reel" allowfullscreen loading="lazy"></iframe> -->
+        </div>
+        <figcaption>Rigging Reel<small>Write one line about what this reel shows and the software used.</small><a href="#rigging">See my rigging work &rarr;</a></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <section id="projects">
   <div class="bg s2 tr flip" aria-hidden="true"></div>
   <div class="wrap">
     <h2>Projects</h2>
-    <p class="lead">Short films, with the modelling and rigging work behind each one.</p>
+    <p class="lead">A selection of short films and tools, from character modelling and rigging to Python autorigging.</p>
     <div class="grid">
-      <a class="card" href="#"><div class="pic"><img src="img/project-monja.jpg" alt="La Monja Gitana" loading="lazy"></div><div class="info"><h3>La Monja Gitana</h3><span class="tag">Modelling</span><span class="tag">Rigging</span><br><small>3D short film, La Salle URL, 2025 - Ongoing</small></div></a>
-      <a class="card" href="#"><div class="pic"><img src="img/project-vecino.jpg" alt="Mi Vecino Es Un C*pullo" loading="lazy"></div><div class="info"><h3>Mi Vecino Es Un C*pullo</h3><span class="tag">Modelling</span><br><small>3D short film, La Salle URL, 2024 - 2025</small></div></a>
-      <a class="card" href="#"><div class="pic"></div><div class="info"><h3>Confidential project</h3><span class="tag">Rigging</span><span class="tag">In progress</span><br><small>3D short film, La Salle URL, 2025 - 2026</small></div></a>
+      <!-- IMAGES: put your files in the "img" folder and change the src of each <img> below -->
+      <a class="card" href="#"><div class="pic"><img src="img/project-monja.jpg" alt="La Monja Gitana" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>La Monja Gitana</h3><span class="tag">Modelling</span><span class="tag">Rigging</span><span class="tag">In progress</span><br><small>3D short film, La Salle URL, 2025 - Ongoing</small></div></a>
+      <a class="card" href="#"><div class="pic"><img src="img/project-stigma.jpg" alt="STIGMA" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>STIGMA</h3><span class="tag">Rigging</span><br><small>3D short film, La Salle URL, 2025 - 2026</small></div></a>
+      <a class="card" href="#"><div class="pic"><img src="img/project-vecino.jpg" alt="Mi Vecino Es Un C*pullo" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>Mi Vecino Es Un C*pullo</h3><span class="tag">Modelling</span><br><small>3D short film, La Salle URL, 2024 - 2025</small></div></a>
     </div>
   </div>
 </section>
@@ -159,9 +211,24 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     </div>
     <div style="margin-bottom:32px"><span class="tag">Maya</span><span class="tag">ZBrush</span><span class="tag">Houdini</span><span class="tag">Substance Painter</span></div>
     <div class="shots">
-      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-1.jpg" alt="Modelling work 1" loading="lazy"></div></div>
-      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-2.jpg" alt="Modelling work 2" loading="lazy"></div></div>
-      <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-3.jpg" alt="Modelling work 3" loading="lazy"></div></div>
+      <figure>
+        <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-1.jpg" alt="Modelling work 1" loading="lazy" onerror="this.remove()"></div></div>
+        <!-- EDIT the title and description below. To use a video instead of an image, replace the <img> with:
+             <video src="video/modelling-1.mp4" controls muted loop playsinline></video> -->
+        <figcaption><b>Title of the piece</b> Write one or two lines about what this shows, for example a ZBrush sculpt, the retopology wireframe or the final render.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-2.jpg" alt="Modelling work 2" loading="lazy" onerror="this.remove()"></div></div>
+        <!-- EDIT the title and description below. To use a video instead of an image, replace the <img> with:
+             <video src="video/modelling-2.mp4" controls muted loop playsinline></video> -->
+        <figcaption><b>Title of the piece</b> Write one or two lines about what this shows, for example a ZBrush sculpt, the retopology wireframe or the final render.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot" data-label="Modelling image"><div class="pic"><img src="img/modelling-3.jpg" alt="Modelling work 3" loading="lazy" onerror="this.remove()"></div></div>
+        <!-- EDIT the title and description below. To use a video instead of an image, replace the <img> with:
+             <video src="video/modelling-3.mp4" controls muted loop playsinline></video> -->
+        <figcaption><b>Title of the piece</b> Write one or two lines about what this shows, for example a ZBrush sculpt, the retopology wireframe or the final render.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -178,9 +245,26 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     </div>
     <div style="margin-bottom:32px"><span class="tag">Maya</span><span class="tag">Python</span><span class="tag">Python Qt</span><span class="tag">mGear</span></div>
     <div class="shots">
-      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-1.jpg" alt="Rigging work 1" loading="lazy"></div></div>
-      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-2.jpg" alt="Rigging work 2" loading="lazy"></div></div>
-      <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-3.jpg" alt="Rigging work 3" loading="lazy"></div></div>
+      <figure>
+        <div class="shot" data-label="Rigging video"><div class="pic"></div>
+          <video controls muted loop playsinline preload="metadata" data-auto poster="img/rigging-lola-poster.jpg"><source src="video/rigging-lola.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+        </div>
+        <!-- EDIT the title and description below. -->
+        <figcaption><b>Character body rig</b> Full-body rig in Maya with the animator controls for the face, spine, arms, hands and feet, built to be clear and easy to pose.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot" data-label="Rigging video"><div class="pic"></div>
+          <video controls muted loop playsinline preload="metadata" data-auto poster="img/rigging-tool-poster.jpg" style="object-fit:cover;object-position:85% 50%"><source src="video/rigging-tool.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+        </div>
+        <!-- EDIT the title and description below. -->
+        <figcaption><b>IK/FK Matcher tool</b> A custom Maya tool with a Python Qt interface. It matches the FK and IK arm controls so animators can switch between them without the pose jumping.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot" data-label="Rigging image"><div class="pic"><img src="img/rigging-3.jpg" alt="Rigging work 3" loading="lazy" onerror="this.remove()"></div></div>
+        <!-- EDIT the title and description below. To use a video instead of an image, replace the <img> with:
+             <video src="video/rigging-3.mp4" controls muted loop playsinline></video> -->
+        <figcaption><b>Title of the piece</b> Explain what this shows in simple words, for example a deformation test, the animator controls or the autorigging tool, and why it matters.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -189,14 +273,13 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
   <div class="bg s1 tr" aria-hidden="true"></div>
   <div class="wrap">
     <h2>CV</h2>
-    <p class="lead">Currently studying a Bachelor's Degree in Animation &amp; VFX at La Salle URL, Barcelona, and working on short films as a modeller and rigger.</p>
     <div class="cv">
       <div>
         <div class="block">
           <h3>Experience</h3>
           <div class="job"><b>3D Lead Character Modeller, Rigger</b><span>"La Monja Gitana", 3D short film, La Salle URL, BCN, 2025 - Ongoing</span>
             <ul><li>Coordinated the character modelling department's tasks, tracked progress and kept deadlines on schedule.</li><li>Sculpted the main character in high resolution in ZBrush and took part in retopology.</li><li>Developed a modular biped and quadruped autorigging system and custom tools in Python.</li><li>Carried out the skinning, ensuring good deformations and clean integration between mesh and rig.</li></ul></div>
-          <div class="job"><b>Crowd Rigger</b><span>Confidential project (in progress), 3D short film, La Salle URL, BCN, 2025 - 2026</span>
+          <div class="job"><b>Crowd Rigger</b><span>&quot;STIGMA&quot;, 3D short film, La Salle URL, BCN, 2025 - 2026</span>
             <ul><li>Built biped rigs for crowd characters using mGear, with custom facial modules.</li><li>Used Python to automate parts of the rigging workflow so setups are easy to adjust and reuse.</li><li>Worked closely with the Lead and the team to refine rigs and resolve technical issues.</li></ul></div>
           <div class="job"><b>Character Modeller</b><span>"Mi Vecino Es Un C*pullo", 3D short film, La Salle URL, BCN, 2024 - 2025</span>
             <ul><li>Modelled the main protagonist, creating detailed 3D sculpts that matched the project's artistic direction.</li><li>Worked on retopology for clean, optimised production geometry.</li><li>Modelled the protagonist's clothing and hair.</li></ul></div>
@@ -233,15 +316,15 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     <p style="margin-bottom:18px">Available for freelance projects and collaborations.</p>
     <a class="mail" href="mailto:laiavilagalera@gmail.com">laiavilagalera@gmail.com</a>
     <div class="links">
-      <a href="#">LinkedIn</a><a href="#">Reel</a>
+      <a href="#">LinkedIn</a><a href="#">Reel</a><a href="https://github.com/alvaroCano-IKFK/La-monja-gitana-autorig" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
 
-<footer>&copy; 2026 Laia Vilà Galera</footer>
+<footer>&copy; 2026 Laia Vilà Galera &nbsp;|&nbsp; <a href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY">View the code on GitHub</a></footer>
 
 <script>
-/* Short bone chain that follows the cursor, like a live rig */
+/* Hero: live bone chain that follows the cursor, over a faint perspective floor grid */
 (function(){
   var c=document.getElementById('rig'),x=c.getContext('2d');
   var W,H,N=4,L=30,joints=[],t=0,tx=null,ty=null;
@@ -278,6 +361,17 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     if(!still)requestAnimationFrame(frame);
   }
   frame();
+})();
+</script>
+<script>
+/* Play the rigging clips only while they are on screen (muted, looped) */
+(function(){
+  var v=document.querySelectorAll('.shot video[data-auto]');
+  if(!('IntersectionObserver' in window))return;
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){});}else{e.target.pause();}
+  });},{threshold:.4});
+  v.forEach(function(el){o.observe(el)});
 })();
 </script>
 </body>
