@@ -42,6 +42,9 @@ section{position:relative;overflow:hidden}
 .reels figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:14px;line-height:1.5;margin-top:4px;opacity:.8}
 .reels figcaption a{display:inline-block;margin-top:6px;font-family:var(--body);font-weight:500;font-size:14px;color:var(--garnet)}
 .shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:1}
+.shot.fit{aspect-ratio:auto;background:none;border:0}
+.shot.fit .pic,.shot.fit::after{display:none}
+.shot.fit video{position:static;display:block;width:100%;height:auto;object-fit:initial;background:none;border-radius:18px}
 .shots figure{margin:0}
 .shots figcaption{margin-top:10px;font-size:14px;line-height:1.55;opacity:.85}
 .shots figcaption b{display:block;font-family:var(--display);font-size:17px;margin-bottom:2px}
@@ -165,13 +168,13 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     <div class="reels">
       <figure>
         <div class="reel">
-          <iframe src="https://youtu.be/dyxx3y_772s" title="Modelling reel" allowfullscreen loading="lazy"></iframe> 
+          <video controls playsinline preload="metadata"><source src="img/reel-modelling.mp4" type="video/mp4"></video> 
         </div>
         <figcaption>Modelling Reel<small>Write one line about what this reel shows and the software used.</small><a href="#modelling">See my modelling work &rarr;</a></figcaption>
       </figure>
       <figure>
         <div class="reel">
-          <iframe src="https://youtu.be/oeCVI4XhpFY" title="Rigging reel" allowfullscreen loading="lazy"></iframe> 
+          <video controls playsinline preload="metadata"><source src="img/reel-rigging.mp4" type="video/mp4"></video> 
         </div>
         <figcaption>Rigging Reel<small>Write one line about what this reel shows and the software used.</small><a href="#rigging">See my rigging work &rarr;</a></figcaption>
       </figure>
@@ -206,13 +209,13 @@ footer{padding:22px 0;font-size:13px;color:#6f6568;text-align:center}
     <div style="margin-bottom:32px"><span class="tag">Maya</span><span class="tag">ZBrush</span><span class="tag">Houdini</span><span class="tag">Substance Painter</span></div>
     <div class="shots">
       <figure>
-        <div class="shot" data-label="Modelling video"><div class="pic"></div>
+        <div class="shot fit" data-label="Modelling video"><div class="pic"></div>
           <video autoplay muted loop playsinline disablepictureinpicture preload="auto" data-auto><source src="img/modelling-1.mp4" type="video/mp4"></video>
         </div>
         <figcaption><b>Main character modelling</b> In progress. Sculpted the main character in high resolution using ZBrush and contributed to retopology, while coordinating the character modelling department and managing tasks and deadlines.</figcaption>
       </figure>
       <figure>
-        <div class="shot" data-label="Modelling video"><div class="pic"></div>
+        <div class="shot fit" data-label="Modelling video"><div class="pic"></div>
           <video autoplay muted loop playsinline disablepictureinpicture preload="auto" data-auto><source src="img/modelling-2.mp4" type="video/mp4"></video>
         </div>
         <figcaption><b>Main character modelling</b> Modelled and sculpted the main protagonist, including clothing and hair, with clean, optimised retopology aligned with the project’s artistic direction.</figcaption>
